@@ -14,7 +14,7 @@
             animation: gradientShift 15s ease infinite;
         }
 
-        /* Animating background gradient */
+        
         @keyframes gradientShift {
             0% { background: linear-gradient(to right, #00c6ff, #0072ff); }
             50% { background: linear-gradient(to right, #FF6347, #FF4500); }
@@ -109,7 +109,7 @@
             font-size: 1.5em;
         }
 
-        /* Particle Background */
+        
         .particles {
             position: absolute;
             top: 0;
@@ -129,7 +129,7 @@
             animation: particleMove 6s linear infinite;
         }
 
-        /* Particle animation */
+        
         @keyframes particleMove {
             0% {
                 transform: translate3d(0, 0, 0);
@@ -141,7 +141,7 @@
             }
         }
 
-        /* Animations */
+        
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -171,7 +171,7 @@
 </head>
 <body>
 
-    <!-- Particle effect background -->
+    
     <div class="particles"></div>
 
     <div class="welcome">
@@ -194,25 +194,25 @@
     </div>
 
     <script>
-        // Generate particles for the background effect
+        
         function createParticle() {
             const particle = document.createElement('div');
             particle.classList.add('particle');
             document.querySelector('.particles').appendChild(particle);
 
-            // Randomize position
+            
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
 
-            // Set random movement directions
+            
             particle.style.setProperty('--x', `${Math.random() * 400 - 200}px`);
             particle.style.setProperty('--y', `${Math.random() * 400 - 200}px`);
 
-            // Remove particle after animation completes
+            
             setTimeout(() => particle.remove(), 6000);
         }
 
-        // Create a new particle every 100ms
+        
         setInterval(createParticle, 100);
     </script>
 

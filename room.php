@@ -84,7 +84,7 @@ function generateRooms($building, $floors, $roomsPerFloor) {
 </head>
 <body>
 
-    <!-- Back Button -->
+   
     <a href="dashboard.php" class="back-button">Back to Dashboard</a>
 
     <h1>Room Listing by Building</h1>

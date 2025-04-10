@@ -79,13 +79,13 @@
         <h1>User Profile</h1>
 
         <div class="profile-info">
-            <!-- Example profile info -->
+            
             <p><strong>Name:</strong> John Doe</p>
             <p><strong>Email:</strong> johndoe@example.com</p>
             <p><strong>Role:</strong> Student</p>
         </div>
 
-        <!-- Back button -->
+        
         <a href="dashboard.php" class="back-button">Back to Dashboard</a>
     </div>
 

@@ -80,7 +80,7 @@
             transform: translateY(2px);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        /* Hover Effect on Table Rows */
+        
         tr:hover {
             background-color: #f1f5f9;
             transform: scale(1.02);
@@ -90,7 +90,7 @@
 </head>
 <body>
 
-    <!-- Back Button -->
+    
     <a href="dashboard.php" class="back-button">Back to Dashboard</a>
 
     <h2>Room Status Overview</h2>
