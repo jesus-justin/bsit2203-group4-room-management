@@ -1,6 +1,14 @@
-body {
+/* Reset and core layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #00c6ff, #0072ff);
+    background: url('bsuu.png') no-repeat center center fixed;
+    background-size: cover;
     text-align: center;
     padding-top: 50px;
     margin: 0;
@@ -11,13 +19,15 @@ body {
     flex-direction: column;
 }
 
+/* Title styling */
 h1 {
     color: white;
     font-size: 3.5em;
     margin-bottom: 40px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Button container */
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -25,51 +35,50 @@ h1 {
     gap: 20px;
 }
 
+/* Buttons with glass effect + color accents */
 .button-container a {
     display: inline-block;
     padding: 25px 50px;
-    background-color: #0072ff;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
     font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
     border-radius: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-container a:hover {
-    background-color: #0056c1;
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
-.button-container a:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
+/* Button individual colors */
 .button-container a:nth-child(1) {
-    background-color: #28a745;
+    border-color: #28a745;
 }
 .button-container a:nth-child(1):hover {
-    background-color: #218838;
+    background-color: rgba(40, 167, 69, 0.3);
 }
 
 .button-container a:nth-child(2) {
-    background-color: #ffc107;
+    border-color: #ffc107;
 }
 .button-container a:nth-child(2):hover {
-    background-color: #e0a800;
+    background-color: rgba(255, 193, 7, 0.3);
 }
 
 .button-container a:nth-child(3) {
-    background-color: #dc3545;
+    border-color: #dc3545;
 }
 .button-container a:nth-child(3):hover {
-    background-color: #c82333;
+    background-color: rgba(220, 53, 69, 0.3);
 }
 
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     .button-container a {
         padding: 20px 40px;

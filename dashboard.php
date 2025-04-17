@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Welcome to Your Dashboard</h1>
+
     <div class="button-container">
         <a href="profile.php">Profile</a>
         <a href="rooms.php">Rooms</a>
