@@ -88,11 +88,11 @@
 
     <h2>Room Management System Overview</h2>
 
-    <p>Welcome to the **Room Management System** for Batangas State University Lipa Campus. This advanced platform has been developed to address the everyday challenges of room management on campus. The system is designed to help students, faculty, and staff easily reserve rooms, check availability, and plan their schedules with ease and efficiency. The goal is to provide a seamless and transparent experience in managing room reservations, ensuring that everyone knows the status of rooms at all times.</p>
+    <p>Welcome to the "Room Management System" for Batangas State University Lipa Campus. This advanced platform has been developed to address the everyday challenges of room management on campus. The system is designed to help students, faculty, and staff easily reserve rooms, check availability, and plan their schedules with ease and efficiency. The goal is to provide a seamless and transparent experience in managing room reservations, ensuring that everyone knows the status of rooms at all times.</p>
 
     <div class="goal">
         <h3>Goal of the Room Management System:</h3>
-        <p>The **Room Management System** aims to optimize the way rooms are used on the Batangas State University Lipa Campus. With the system, users can:</p>
+        <p>The "Room Management System" aims to optimize the way rooms are used on the Batangas State University Lipa Campus. With the system, users can:</p>
         <ul>
             <li><strong>Quickly check room availability:</strong> Students and instructors no longer need to make phone calls or physically check the status of rooms. The system shows real-time updates about whether a room is vacant, occupied, or unavailable.</li>
             <li><strong>Ensure fair access:</strong> By making room availability transparent, the system guarantees that all students and faculty have equal access to reserve rooms based on their needs and availability.</li>
