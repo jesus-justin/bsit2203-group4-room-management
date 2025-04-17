@@ -18,6 +18,11 @@
         <a href="profile.php">Profile</a>
         <a href="rooms.php">Rooms</a>
         <a href="overview.php">Overview</a>
+        <!-- ABOUT US FOOTER BUTTON -->
+    <footer class="about-footer">
+         <a href="about_us.php" class="nav-link">About Us</a>
+    </footer>
+
     </div>
 </body>
 </html>
