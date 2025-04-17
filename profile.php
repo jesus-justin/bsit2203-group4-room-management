@@ -74,6 +74,9 @@
     </style>
 </head>
 <body>
+<div class="logo-header">
+        <img src="bsu.png" alt="BSU Logo">
+    </div>
 
     <div class="container">
         <h1>User Profile</h1>
