@@ -12,20 +12,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $db = new Database();
         $conn = $db->getConnect();
 
-        // Call stored procedure
+        // Call stored procedure to get user by email
         $stmt = $conn->prepare("CALL GetUserByEmail(:email)");
         $stmt->execute([':email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        $stmt->closeCursor(); // Important when using stored procedures
+        $stmt->closeCursor(); // Important for stored procedures
 
         if ($user && password_verify($password, $user['password'])) {
+            // Store all required user info in session for auto-fill
             $_SESSION['user'] = [
-                'name'  => $user['first_name'] . ' ' . $user['last_name'],
-                'email' => $user['email'],
-                'role'  => $user['role']
+                'user_id'    => $user['user_id'],
+                'first_name' => $user['first_name'],
+                'last_name'  => $user['last_name'],
+                'email'      => $user['email'],
+                'role'       => $user['role'],
+                'name'       => $user['first_name'] . ' ' . $user['last_name']
             ];
-            header("Location: dashboard.php");
-            exit;
+
+            // Redirect based on user role
+            if ($user['role'] === 'admin') {
+                header("Location: admin_reservation.php");
+                exit;
+            } else {
+                header("Location: dashboard.php"); // Redirect to dashboard for regular users
+                exit;
+            }
         } else {
             $message = "Invalid email or password.";
         }
