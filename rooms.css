@@ -3,9 +3,6 @@ body {
     background-color: #f4f7fb;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-height: 100vh;
 }
 
@@ -17,28 +14,48 @@ body {
 
 .header {
     background-color: #f4f4f4;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
 }
 
 .back-button {
     text-decoration: none;
     color: #007BFF;
     font-size: 16px;
-    margin-right: 20px;
+}
+
+.reserve-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.reserve-button:hover {
+    background-color: #45a049;
+}
+
+.room-container {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.building-section {
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 h1 {
     font-size: 24px;
     color: #333;
-}
-
-.room-container {
-    padding: 20px;
-}
-
-.building-section {
-    margin-bottom: 40px;
 }
 
 h2 {
@@ -48,22 +65,26 @@ h2 {
 
 .room-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 10px; 
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    max-width: 600px;
+    width: 100%;
+    justify-content: center;
 }
 
 .room-card {
-    padding: 15px;
+    padding: 10px;
     background-color: #e9ecef;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     text-align: center;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 .room-card:hover {
     background-color: #007BFF;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }

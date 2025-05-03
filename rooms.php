@@ -1,4 +1,5 @@
 <?php
+require_once 'check_session.php';
 require_once 'database.php';
 
 $db = new Database();
@@ -12,6 +13,8 @@ $groupedRooms = [];
 foreach ($rooms as $row) {
     $groupedRooms[$row['building_name']][] = $row['room_name'];
 }
+
+$role = $_SESSION['user']['role'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,38 +22,21 @@ foreach ($rooms as $row) {
     <meta charset="UTF-8">
     <title>Rooms by Building</title>
     <link rel="stylesheet" href="rooms.css">
-
-    <style>
-
-        .header {
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-        }
-
-        .reserve-button {
-            display:flex;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-left: 1200px;
-        }
-
-        .reserve-button:hover {
-            background-color: #45a049;
-        }
-    </style>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
     <header class="header">
         <a href="dashboard.php" class="back-button">← Back to Dashboard</a>
-        <h1>Rooms by Building</h1>
-        <a href="insert_reservation.php" class="reserve-button">Reserve a Room</a>
+        <h1>Rooms</h1>
+
+        <div class="header-right">
+            <?php if ($role === 'Student'): ?>
+                <a href="#" class="reserve-button" onclick="showStudentAlert()">Reserve a Room</a>
+            <?php else: ?>
+                <a href="insert_reservation.php" class="reserve-button">Reserve a Room</a>
+            <?php endif; ?>
+        </div>
     </header>
 
     <main class="room-container">
@@ -66,6 +52,16 @@ foreach ($rooms as $row) {
         <?php endforeach; ?>
     </main>
 
+    <script>
+        function showStudentAlert() {
+            Swal.fire({
+                icon: 'info',
+                title: 'Access Denied',
+                text: 'Students cannot reserve a Room',
+                confirmButtonColor: '#3085d6'
+            });
+        }
+    </script>
 
 </body>
 </html>
