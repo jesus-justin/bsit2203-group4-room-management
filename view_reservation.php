@@ -118,7 +118,8 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>ID</th>
                     <th>Room ID</th>
                     <th>User ID</th>
-                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Building</th>
                     <th>Date</th>
                     <th>Time</th>
@@ -134,7 +135,8 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td>{$row['reservation_id']}</td>
                                 <td>{$row['room_id']}</td>
                                 <td>{$row['user_id']}</td>
-                                <td>{$row['username']}</td>
+                                <td>{$row['first_name']}</td>
+                                <td>{$row['last_name']}</td>
                                 <td>{$row['building_name']}</td>
                                 <td>{$row['reservation_date']}</td>
                                 <td>{$row['reservation_time']}</td>
