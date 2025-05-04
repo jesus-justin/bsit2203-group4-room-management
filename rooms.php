@@ -11,7 +11,10 @@ $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $groupedRooms = [];
 foreach ($rooms as $row) {
-    $groupedRooms[$row['building_name']][] = $row['room_name'];
+    $groupedRooms[$row['building_name']][] = [
+        'room_name' => $row['room_name'],
+        'room_id' => $row['room_id']
+    ];
 }
 
 $role = $_SESSION['user']['role'] ?? '';
@@ -29,14 +32,6 @@ $role = $_SESSION['user']['role'] ?? '';
     <header class="header">
         <a href="dashboard.php" class="back-button">← Back to Dashboard</a>
         <h1>Rooms</h1>
-
-        <div class="header-right">
-            <?php if ($role === 'Student'): ?>
-                <a href="#" class="reserve-button" onclick="showStudentAlert()">Reserve a Room</a>
-            <?php else: ?>
-                <a href="insert_reservation.php" class="reserve-button">Reserve a Room</a>
-            <?php endif; ?>
-        </div>
     </header>
 
     <main class="room-container">
@@ -45,7 +40,11 @@ $role = $_SESSION['user']['role'] ?? '';
                 <h2><?= htmlspecialchars($building) ?></h2>
                 <div class="room-grid">
                     <?php foreach ($roomList as $room): ?>
-                        <div class="room-card"><?= htmlspecialchars($room) ?></div>
+                        <a 
+                            class="room-card" 
+                            href="insert_reservation.php?room_id=<?= urlencode($room['room_id']) ?>&building_name=<?= urlencode($building) ?>">
+                            <?= htmlspecialchars($room['room_name']) ?>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             </section>
