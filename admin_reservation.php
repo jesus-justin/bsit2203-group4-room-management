@@ -75,5 +75,6 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
         </tbody>
     </table>
+    <a href="rooms.php" style="display: inline-block; margin-left:45%; text-decoration: none; font-size: 16px;">← Back to Rooms</a>
 </body>
 </html>
