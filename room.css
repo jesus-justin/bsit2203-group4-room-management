@@ -65,12 +65,13 @@ h2 {
 
 .room-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(5, 1fr); 
     gap: 10px;
-    max-width: 600px;
+    max-width: 1000px; 
     width: 100%;
     justify-content: center;
 }
+
 
 .room-card {
     padding: 10px;

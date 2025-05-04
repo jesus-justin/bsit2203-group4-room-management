@@ -65,7 +65,7 @@
         <p>Need to book a room or fix a scheduling issue? We’re here to help just reach out, and we’ll make it easy for you!</p>
         <p class="contact-item">
             <i class="fas fa-envelope"></i>
-            <strong>Email us:</strong> group4@gmail.com – Reach out for any inquiries, and we'll respond as soon as possible.
+            <strong>Email us:</strong> reserveu@gmail.com – Reach out for any inquiries, and we'll respond as soon as possible.
         </p>
         <p class="contact-item">
             <i class="fas fa-phone"></i>
@@ -79,7 +79,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2025 Room Management. All rights reserved.</p>
+    <p>&copy; 2025 ReServeU. All rights reserved.</p>
 </footer>
 </body>
 </html>

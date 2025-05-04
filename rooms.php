@@ -24,13 +24,13 @@ $role = $_SESSION['user']['role'] ?? '';
 <head>
     <meta charset="UTF-8">
     <title>Rooms by Building</title>
-    <link rel="stylesheet" href="rooms.css">
+    <link rel="stylesheet" href="room.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
     <header class="header">
-        <a href="dashboard.php" class="back-button">← Back to Dashboard</a>
+        <a href="dash-beta.php" class="back-button">← Back to Dashboard</a>
         <h1>Rooms</h1>
     </header>
 

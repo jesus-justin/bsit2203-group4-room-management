@@ -43,7 +43,7 @@ try {
         <p><strong>Role:</strong> <?php echo htmlspecialchars($role); ?></p>
 
         <div class="nav-links">
-            <a href="dashboard.php">← Back to Dashboard</a>
+            <a href="dash-beta.php">← Back to Dashboard</a>
         </div>
     </div>
 </body>
