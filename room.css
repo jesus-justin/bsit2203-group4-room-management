@@ -21,6 +21,15 @@ body {
     width: 100%;
 }
 
+/* Center the title in the header */
+.center-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
 .back-button {
     text-decoration: none;
     color: #007BFF;
@@ -102,4 +111,13 @@ h2 {
     border-radius: 5px;
     text-decoration: none;
     display: block;
+}
+
+/* Optional: header below main title */
+.rooms-header {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
 }
