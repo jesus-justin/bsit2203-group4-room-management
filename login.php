@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: admin_reservation.php");
                 exit;
             } else {
-                header("Location: dash-beta.php"); // Redirect to dashboard for regular users
+                header("Location: dashboard.php"); // Redirect to dashboard for regular users
                 exit;
             }
         } else {

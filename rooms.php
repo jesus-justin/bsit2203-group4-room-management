@@ -30,7 +30,7 @@ $role = $_SESSION['user']['role'] ?? '';
 <body>
 
     <header class="header">
-        <a href="dash-beta.php" class="back-button">← Back to Dashboard</a>
+        <a href="dashboard.php" class="back-button">← Back to Dashboard</a>
         <h1>Rooms</h1>
     </header>
 
