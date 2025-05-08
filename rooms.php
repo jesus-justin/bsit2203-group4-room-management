@@ -17,6 +17,16 @@ foreach ($rooms as $row) {
     ];
 }
 
+$reservableRooms = [
+    '501- Chemistry Laboratory',
+    '502- Computer Laboratory',
+    '503- Computer Laboratory/SSC and Apex Club Office',
+    'Psych Lab',
+    'Physics Lab',
+    'Multimedia Room',
+    'Graciano Lopez Jaena Hall'
+];
+
 $role = $_SESSION['user']['role'] ?? '';
 ?>
 <!DOCTYPE html>
@@ -30,7 +40,7 @@ $role = $_SESSION['user']['role'] ?? '';
 <body>
 
     <header class="header">
-        <a href="dashboard.php" class="back-button">← Back to Dashboard</a>
+        <a href="dash-beta.php" class="back-button">← Back to Dashboard</a>
         <h1>Rooms</h1>
     </header>
 
@@ -40,11 +50,19 @@ $role = $_SESSION['user']['role'] ?? '';
                 <h2><?= htmlspecialchars($building) ?></h2>
                 <div class="room-grid">
                     <?php foreach ($roomList as $room): ?>
-                        <a 
-                            class="room-card" 
-                            href="insert_reservation.php?room_id=<?= urlencode($room['room_id']) ?>&building_name=<?= urlencode($building) ?>">
-                            <?= htmlspecialchars($room['room_name']) ?>
-                        </a>
+                        <?php
+                            $roomName = htmlspecialchars($room['room_name']);
+                            $isReservable = preg_match('/^Room \d{3}$/', $roomName) || in_array($roomName, $reservableRooms);
+                        ?>
+                        <?php if ($isReservable): ?>
+                            <a 
+                                class="room-card" 
+                                href="insert_reservation.php?room_id=<?= urlencode($room['room_id']) ?>&building_name=<?= urlencode($building) ?>">
+                                <?= $roomName ?>
+                            </a>
+                        <?php else: ?>
+                            <div class="room-card disabled" title="This room cannot be reserved"><?= $roomName ?></div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </section>

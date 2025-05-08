@@ -72,7 +72,6 @@ h2 {
     justify-content: center;
 }
 
-
 .room-card {
     padding: 10px;
     background-color: #e9ecef;
@@ -82,13 +81,25 @@ h2 {
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    text-decoration: none;     /* removes underline */
-    color: #333;               /* removes default blue link color */
-    display: block;            /* ensures full area is clickable */
+    text-decoration: none;
+    color: #333;
+    display: block;
 }
 
 .room-card:hover {
     background-color: #007BFF;
     color: white;
     cursor: pointer;
+}
+
+.room-card.disabled {
+    background-color: #ccc;
+    color: #666;
+    pointer-events: none;
+    cursor: not-allowed;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
 }
