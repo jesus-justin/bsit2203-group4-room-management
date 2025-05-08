@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dash-beta-notsure.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <nav class="navbar">
