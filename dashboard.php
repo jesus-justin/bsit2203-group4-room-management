@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dash-beta-notsure.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <nav class="navbar">
@@ -13,6 +13,7 @@
                 <a href="profile.php">Profile</a>
                 <a href="rooms.php">Rooms</a>
                 <a href="about_us.php">About Us</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>
