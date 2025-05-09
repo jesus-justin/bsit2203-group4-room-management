@@ -35,7 +35,7 @@ $role = $_SESSION['user']['role'] ?? '';
     <meta charset="UTF-8">
     <title>Rooms by Building</title>
     <link rel="stylesheet" href="room.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 <body>
 <style>
@@ -77,11 +77,12 @@ $role = $_SESSION['user']['role'] ?? '';
                         $isReservable = preg_match('/^Room \d{3}$/', $roomName) || in_array($roomName, $reservableRooms);
                     ?>
                     <?php if ($isReservable): ?>
-                        <a 
-                            class="room-card" 
-                            href="insert_reservation.php?room_id=<?= urlencode($room['room_id']) ?>&building_name=<?= urlencode($building) ?>">
+                        <div 
+                            class="room-card clickable" 
+                            data-room-id="<?= htmlspecialchars($room['room_id']) ?>" 
+                            data-building-name="<?= htmlspecialchars($building) ?>">
                             <?= $roomName ?>
-                        </a>
+                        </div>
                     <?php else: ?>
                         <div class="room-card disabled" title="This room cannot be reserved"><?= $roomName ?></div>
                     <?php endif; ?>
@@ -92,14 +93,28 @@ $role = $_SESSION['user']['role'] ?? '';
 </main>
 
 <script>
-    function showStudentAlert() {
-        Swal.fire({
-            icon: 'info',
-            title: 'Access Denied',
-            text: 'Students cannot reserve a Room',
-            confirmButtonColor: '#3085d6'
+    const userRole = <?= json_encode($role) ?>;
+
+    document.querySelectorAll('.room-card.clickable').forEach(card => {
+        card.addEventListener('click', function () {
+            const roomId = this.dataset.roomId;
+            const buildingName = this.dataset.buildingName;
+
+            if (userRole === 'student') {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Redirecting...',
+                    text: 'Students can only view the reservation schedule.',
+                    timer: 1500,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = `schedule_calendar.php?room_id=${encodeURIComponent(roomId)}`;
+                });
+            } else {
+                window.location.href = `insert_reservation.php?room_id=${encodeURIComponent(roomId)}&building_name=${encodeURIComponent(buildingName)}`;
+            }
         });
-    }
+    });
 </script>
 
 </body>

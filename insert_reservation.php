@@ -30,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $last_name = trim($_POST['last_name'] ?? '');
     $building_name = trim($_POST['building_name'] ?? '');
     $reservation_date = trim($_POST['reservation_date'] ?? '');
-    $reservation_time = trim($_POST['reservation_time'] ?? '');
+    $start_time = trim($_POST['start_time'] ?? '');
+    $end_time = trim($_POST['end_time'] ?? '');
     $description = trim($_POST['description'] ?? '');
 
     if (empty($room_id)) {
@@ -46,12 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($roomExists && $userExists) {
             $insertStmt = $conn->prepare("INSERT INTO reservation 
-                (room_id, user_id, first_name, last_name, building_name, reservation_date, reservation_time, description)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                (room_id, user_id, first_name, last_name, building_name, reservation_date, start_time, end_time, description)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             $success = $insertStmt->execute([ 
                 $room_id, $user_id, $first_name, $last_name, $building_name, 
-                $reservation_date, $reservation_time, $description 
+                $reservation_date, $start_time, $end_time, $description 
             ]);
 
             if ($success) {
@@ -81,8 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <?php if (!empty($message)) echo $message; ?>
-<a href="rooms.php" style="display: inline-block; margin-left:45%; text-decoration: none; font-size: 16px;">← Back to Rooms</a>
+<a href="rooms.php" style="display: inline-block; margin-left:45%; text-decoration: none; font-size: 16px;">← Back to Rooms</a><br>
 
+<a href="schedule_calendar.php" style="display: inline-block; margin-left:45%; text-decoration: none; font-size: 16px;">← Back to Schedule</a>
 <form method="post">
     <h2>Make a Reservation</h2>
 
@@ -107,8 +109,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="reservation_date">Reservation Date:</label>
     <input type="date" name="reservation_date" required><br>
 
-    <label for="reservation_time">Reservation Time:</label>
-    <input type="time" name="reservation_time" required><br>
+    <label for="start_time">Start Time:</label>
+    <input type="time" name="start_time" required><br>
+
+    <label for="end_time">End Time:</label>
+    <input type="time" name="end_time" required><br>
 
     <label for="description">Description:</label>
     <textarea name="description" required></textarea><br>
