@@ -21,6 +21,15 @@ body {
     width: 100%;
 }
 
+/* Center the title in the header */
+.center-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
 .back-button {
     text-decoration: none;
     color: #007BFF;
@@ -65,9 +74,9 @@ h2 {
 
 .room-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(5, 1fr); 
     gap: 10px;
-    max-width: 600px;
+    max-width: 1000px; 
     width: 100%;
     justify-content: center;
 }
@@ -81,13 +90,34 @@ h2 {
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    text-decoration: none;     /* removes underline */
-    color: #333;               /* removes default blue link color */
-    display: block;            /* ensures full area is clickable */
+    text-decoration: none;
+    color: #333;
+    display: block;
 }
 
 .room-card:hover {
     background-color: #007BFF;
     color: white;
     cursor: pointer;
+}
+
+.room-card.disabled {
+    background-color: #ccc;
+    color: #666;
+    pointer-events: none;
+    cursor: not-allowed;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Optional: header below main title */
+.rooms-header {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
 }

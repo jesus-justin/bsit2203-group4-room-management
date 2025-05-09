@@ -36,6 +36,31 @@ try {
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
+<body>
+    
+    <style>
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background-color:rgb(49, 190, 195);
+            color: white;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            z-index: 9999;
+        }
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+    <a class="logout-btn" href="logout.php">Logout</a>
+
+    <div class="profile-container">
+
     <div class="profile-container">
         <h1>User Profile</h1>
         <p><strong>Name:</strong> <?php echo htmlspecialchars($name); ?></p>

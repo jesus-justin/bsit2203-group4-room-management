@@ -1,157 +1,79 @@
-/* Reset and core layout */
-* {
+/* Reset default margins and paddings */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('bsuu.png') no-repeat center center fixed;
+    background-image: url('bsu.jpg'); /* Make sure this image is in your project folder */
     background-size: cover;
-    text-align: center;
-    padding-top: 70px; /* to accommodate navbar */
-    margin: 0;
+    background-position: center;
+    background-attachment: fixed; /* This makes the background image stay still while scrolling */
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
+    font-family: Arial, sans-serif;
 }
 
-/* Title styling */
-h1 {
-    color: white;
-    font-size: 3.5em;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
 
-/* Button container */
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Buttons with glass effect + color accents */
-.button-container a {
-    display: inline-block;
-    padding: 25px 50px;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button-container a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-}
-
-/* Button individual colors */
-.button-container a:nth-child(1) {
-    border-color: #28a745;
-}
-.button-container a:nth-child(1):hover {
-    background-color: rgba(40, 167, 69, 0.3);
-}
-
-.button-container a:nth-child(2) {
-    border-color: #ffc107;
-}
-.button-container a:nth-child(2):hover {
-    background-color: rgba(255, 193, 7, 0.3);
-}
-
-.button-container a:nth-child(3) {
-    border-color: #dc3545;
-}
-.button-container a:nth-child(3):hover {
-    background-color: rgba(220, 53, 69, 0.3);
-}
-
-/* NAVIGATION BAR */
+/* Navbar styles */
 .navbar {
-    position: fixed;
-    top: 0; 
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    padding: 10px 20px;
-}
-  
-.nav-list {
-    list-style: none;
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
-    margin: 0;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+    position: relative;
+    z-index: 10;
 }
-  
-.nav-link {
-    display: inline-block;
-    padding: 8px 16px;
-    font-size: 1em;
-    font-weight: bold;
-    color: white;
+
+/* Dropdown button */
+.dropdown-btn {
+    background-color: #ffffffcd;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Dropdown content container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 20;
+    right: 20px;
+    top: 60px;
+}
+
+/* Dropdown menu items */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
     text-decoration: none;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-  
-.nav-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-}
-  
-.nav-link.signup {
-    border-color: #28a745;
-}
-  
-.nav-link.signup:hover {
-    background-color: rgba(40, 167, 69, 0.3);
+    display: block;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .button-container a {
-        padding: 20px 40px;
-        font-size: 1.1em;
-    }
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
 
-/* ABOUT US FOOTER BUTTON */
-.about-footer {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
+/* Overview content styling */
+.overview {
+    background: rgba(255, 255, 255, 0.845);
+    color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    text-align: justify;
+}
+
+/* Heading style */
+h1 {
     text-align: center;
-    z-index: 999;
-    pointer-events: none;
-}
-
-.about-footer .nav-link {
-    pointer-events: auto;
-    font-size: 1em;
-    padding: 10px 20px;
-    border-color: #17a2b8; /* teal-blue accent */
-}
-
-.about-footer .nav-link:hover {
-    background-color: rgba(23, 162, 184, 0.3);
+    margin-bottom: 30px;
+    color: black;
 }
