@@ -1,0 +1,132 @@
+/* Base reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #e0f7fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Page layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left and right */
+.left-side, .right-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Left side (info panel) */
+.left-side {
+    background-color: #ffffff;
+    border-right: 1px solid rgba(2, 136, 209, 0.2);
+    flex-direction: column;
+    text-align: center;
+}
+
+.left-side h1 {
+    color: #0288d1;
+    margin-bottom: 20px;
+}
+
+.left-side p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    margin: 10px 0 20px;
+    background: linear-gradient(to right, transparent, #0288d1, transparent);
+}
+
+/* Right side (form) */
+.right-side {
+    background-color: #e0f7fa;
+}
+
+/* Form box styles */
+.form-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+    width: 100%;
+    max-width: 350px;
+}
+
+.form-box h2 {
+    text-align: center;
+    color: #0288d1;
+    margin-bottom: 20px;
+}
+
+.form-box p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #b3e5fc;
+    border-radius: 6px;
+}
+
+.form-box input[type="submit"] {
+    background-color: #4fc3f7;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-box input[type="submit"]:hover {
+    background-color: #0288d1;
+}
+
+/* Link below form */
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #0288d1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-side, .right-side {
+        padding: 20px;
+    }
+
+    .form-box {
+        width: 100%;
+        max-width: 350px;
+    }
+}

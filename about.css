@@ -92,4 +92,24 @@ footer {
     background-color:  rgba(0, 0, 0, 0.7);
     color: white;
     text-align: center;
+<<<<<<< HEAD
 }
+=======
+}
+
+.my-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .my-button:hover {
+    background-color: #45a049;
+  }
+  
+>>>>>>> 23980bbe21bd7c8420101e7f009519d5c498a810
