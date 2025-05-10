@@ -100,7 +100,7 @@
                         <h3>Jesus Justin Mercado</h3>
                     </div>
                     <div class="profile">
-                        <img src="iris.jpg" alt="">
+                        <img src="iris2.jpg" alt="">
                         <h3>Iris Minette Napoles</h3>
                     </div>
                     <div class="profile">
