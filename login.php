@@ -31,10 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Redirect based on user role
             if ($user['role'] === 'admin') {
-                header("Location: admin_reservation.php");
+                header("Location: admin_dashboard.php");
+                exit;
+            } else  if ($user['role'] === 'instructor') {
+                header("Location: instructor_dashboard.php");
                 exit;
             } else {
-                header("Location: dashboard.php"); // Redirect to dashboard for regular users
+                header("Location: student_dashboard.php"); // Redirect to dashboard for regular users
                 exit;
             }
         } else {

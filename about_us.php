@@ -27,7 +27,7 @@
                 <h3>Our Team</h3>
                 <div class="profile-container">
                     <div class="profile">
-                        <img src="dayo.jpg" alt="">
+                        <img src="angela.jpg" alt="">
                         <h3>Angela Gizelle Dayo</h3>
                     </div>
                     <div class="profile">
@@ -43,7 +43,7 @@
                         <h3>Jesus Justin Mercado</h3>
                     </div>
                     <div class="profile">
-                        <img src="iris2.jpg" alt="">
+                        <img src="iris.jpg" alt="">
                         <h3>Iris Minette Napoles</h3>
                     </div>
                     <div class="profile">

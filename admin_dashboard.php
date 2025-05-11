@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dash.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="dropdown-container">
             <button onclick="toggleDropdown()" class="dropdown-btn">Menu</button>
             <div id="dropdownMenu" class="dropdown-content">
-                <a href="profile.php">Profile</a>
+                <a href="users.php">Users</a>
                 <a href="rooms.php">Rooms</a>
+                <a href="admin_reservation.php">Reservations</a>
                 <a href="about_us.php">About Us</a>
-                <a href="feedback.php">Feedback</a>
+                <a href="feedback.php">Feedback List</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>
