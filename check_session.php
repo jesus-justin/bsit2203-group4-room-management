@@ -3,44 +3,25 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Define publicly accessible pages (no redirection needed here)
-$publicPages = ['login', 'sign-up'];
+// Define publicly accessible pages
+$public = ['login.php', 'sign-up.php'];
 
-// Get current page name without .php or query strings
-$currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '.php');
+// Get current page
+$currentPage = basename($_SERVER['PHP_SELF']);
 
-// Redirect to login if not logged in and accessing a non-public page
-if (empty($_SESSION['user']) && !in_array($currentPage, $publicPages)) {
+// Redirect to login if user is not logged in and the page is not public
+if (empty($_SESSION['user']) && !in_array($currentPage, $public)) {
     header('Location: login.php');
     exit;
 }
 
-// Role-based redirection logic
-if (isset($_SESSION['user'])) {
-    $role = $_SESSION['user']['role'];
-
-    if (
-        $role === 'admin' &&
-        !in_array($currentPage, ['admin_dashboard', 'user_management', 'reservation_management'])
-    ) {
-        header('Location: admin_dashboard.php');
-        exit;
-    }
-
-    if (
-        in_array($role, ['instructor', 'student leader']) &&
-        $currentPage !== 'instructor_dashboard'
-    ) {
-        header('Location: instructor_dashboard.php');
-        exit;
-    }
-
-    if (
-        $role === 'student' &&
-        $currentPage !== 'student_dashboard'
-    ) {
-        header('Location: student_dashboard.php');
-        exit;
-    }
+// Redirect admin users away from non-admin pages
+if (
+    isset($_SESSION['user']) && 
+    $_SESSION['user']['role'] === 'admin' &&
+    !in_array($currentPage, ['admin_dashboard.php', 'user_management.php', 'reservation_management.php'])
+) {
+    header('Location: admin_dashboard.php');
+    exit;
 }
 ?>
