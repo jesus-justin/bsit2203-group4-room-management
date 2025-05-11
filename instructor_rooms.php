@@ -42,7 +42,7 @@ $role = $_SESSION['user']['role'] ?? '';
 <a class="logout-btn" href="logout.php">Logout</a>
 
 <header class="header">
-    <a href="dashboard.php" class="back-button">Dashboard</a>
+    <a href="instructor_dashboard.php" class="back-button">Dashboard</a>
     <h1 class="center-title">Buildings/Rooms</h1>
     <div style="width: 130px;"></div>
 </header>

@@ -24,6 +24,21 @@ try {
     $name = $user['name'];
     $role = $user['role'];
 
+    // Determine dashboard based on role
+    switch ($role) {
+        case 'admin':
+            $dashboard = 'admin_dashboard.php';
+            break;
+        case 'student':
+            $dashboard = 'student_dashboard.php';
+            break;
+        case 'instructor':
+            $dashboard = 'instructor_dashboard.php';
+            break;
+        default:
+            $dashboard = '#'; // fallback if role is unrecognized
+    }
+
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());
 }
@@ -36,11 +51,8 @@ try {
     <link rel="stylesheet" href="profiles.css">
 </head>
 <body>
-<body>
-    
-    <a class="logout-btn" href="logout.php">Logout</a>
 
-    <div class="profile-container">
+    <a class="logout-btn" href="logout.php">Logout</a>
 
     <div class="profile-container">
         <h1>User Profile</h1>
@@ -48,7 +60,9 @@ try {
         <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
         <p><strong>Role:</strong> <?php echo htmlspecialchars($role); ?></p>
 
-        <a href="dashboard.php" class="back-button">Dashboard</a>
+        <!-- Dynamic dashboard button -->
+        <a href="<?php echo $dashboard; ?>" class="back-button">Dashboard</a>
     </div>
+
 </body>
 </html>

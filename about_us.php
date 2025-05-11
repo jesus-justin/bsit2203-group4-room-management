@@ -1,3 +1,10 @@
+<?php
+require_once 'check_session.php';
+
+$first_name = $_SESSION['user']['first_name'] ?? '';
+$last_name = $_SESSION['user']['last_name'] ?? '';
+$role = ucfirst($_SESSION['user']['role'] ?? '');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +13,17 @@
     <title>About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="about_us.css">
-
-   
 </head>
 <body>
-   <a class="logout-btn" href="logout.php">Logout</a>
+    <a class="logout-btn" href="logout.php">Logout</a>
 
-<header class="header">
-    <a href="dashboard.php" class="back-button">Dashboard</a>
-    <h1 class="center-title">About Us</h1>
-    <div style="width: 130px;"></div>
-</header>
+    <header class="header">
+        <a href="dashboard.php" class="back-button">Dashboard</a>
+        <div class="header-content">
+            <h1 class="center-title">About Us</h1>
+        </div>
+        <div style="width: 130px;"></div>
+    </header>
 
     <section class="about-us">
         <div class="goal-section">

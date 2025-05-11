@@ -10,6 +10,21 @@ $first_name = $_SESSION['user']['first_name'] ?? '';
 $last_name = $_SESSION['user']['last_name'] ?? '';
 $role = $_SESSION['user']['role'] ?? '';
 
+// Determine dashboard based on role
+switch ($role) {
+    case 'admin':
+        $dashboard = 'admin_dashboard.php';
+        break;
+    case 'student':
+        $dashboard = 'student_dashboard.php';
+        break;
+    case 'instructor':
+        $dashboard = 'instructor_dashboard.php';
+        break;
+    default:
+        $dashboard = '#'; // fallback
+}
+
 // Fetch all buildings for the dropdown
 $buildingStmt = $conn->prepare("SELECT building_id, building_name FROM buildings ORDER BY building_name");
 $buildingStmt->execute();
@@ -40,10 +55,9 @@ if ($room_id) {
     }
 }
 
-// Fetch reservations for the selected room or building
+// Fetch reservations
 $reservations = [];
 if ($room_id) {
-    // Get reservations for a specific room
     $reservationsStmt = $conn->prepare("
         SELECT 
             reservation_id,
@@ -60,7 +74,6 @@ if ($room_id) {
     ");
     $reservationsStmt->execute([$room_id]);
 } else if ($building_id) {
-    // Get reservations for all rooms in the selected building
     $reservationsStmt = $conn->prepare("
         SELECT 
             r.reservation_id,
@@ -79,7 +92,6 @@ if ($room_id) {
     ");
     $reservationsStmt->execute([$building_id]);
 } else {
-    // If no specific room or building is selected, get all reservations
     $reservationsStmt = $conn->prepare("
         SELECT 
             r.reservation_id,
@@ -108,32 +120,30 @@ foreach ($reservations as $res) {
     $date = $res['reservation_date'];
     $start = $date . 'T' . $res['start_time'];
     $end = $date . 'T' . $res['end_time'];
-    
+
     $title = isset($res['room_name']) 
         ? $res['room_name'] . ': ' . $res['first_name'] . ' ' . $res['last_name']
         : $res['first_name'] . ' ' . $res['last_name'];
-        
-    // Add building name if available
+
     if (isset($res['building_name'])) {
         $title = $res['building_name'] . ' - ' . $title;
     }
-    
-    // Set color based on status
-    $color = '#3788d8'; // Default blue
+
+    $color = '#3788d8'; // default
     if (isset($res['status'])) {
         switch ($res['status']) {
             case 'Confirmed':
-                $color = '#4caf50'; // Green
+                $color = '#4caf50';
                 break;
             case 'Pending':
-                $color = '#ff9800'; // Orange
+                $color = '#ff9800';
                 break;
             case 'Cancelled':
-                $color = '#f44336'; // Red
+                $color = '#f44336';
                 break;
         }
     }
-    
+
     $events[] = [
         'id' => $res['reservation_id'],
         'title' => $title,
@@ -145,7 +155,6 @@ foreach ($reservations as $res) {
     ];
 }
 
-// If no reservations, set a flag to show the popup
 $no_reservation_message = empty($events) ? 'There are no reservations for this room.' : '';
 ?>
 <!DOCTYPE html>
@@ -163,56 +172,54 @@ $no_reservation_message = empty($events) ? 'There are no reservations for this r
     <a class="logout-btn" href="logout.php">Logout</a>
 
     <header class="header">
-        <a href="instructor_dashboard.php" class="back-button">Dashboard</a>
+        <a href="<?php echo $dashboard; ?>" class="back-button">Dashboard</a>
         <h1 class="center-title">Schedule</h1>
         <div style="width: 100px;"></div>
     </header>
-        
-        <?php if ($room_id && $room_name): ?>
-        <div class="room-info">
-            <h2>Viewing Schedule for: <?= htmlspecialchars($room_name) ?></h2>
-            <p>Building: <?= htmlspecialchars($building_name) ?></p>
-        </div>
-        <?php endif; ?>
-        
-        <section class="filter-section">
-            <h2>Select Room to View Schedule</h2>
-            <div class="filter-row">
-                <div class="filter-group">
-                    <label for="buildingSelect">Building:</label>
-                    <select id="buildingSelect" onchange="window.location.href = '?building_id=' + this.value;">
-                        <option value="">-- Select Building --</option>
-                        <?php foreach ($buildings as $building): ?>
-                        <option value="<?= $building['building_id'] ?>" <?= isset($_GET['building_id']) && $_GET['building_id'] == $building['building_id'] ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($building['building_name']) ?>
-                        </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="roomSelect">Room:</label>
-                    <select id="roomSelect" onchange="window.location.href = '?room_id=' + this.value;">
-                        <option value="">-- Select Room --</option>
-                        <?php foreach ($rooms as $room): ?>
-                        <option value="<?= $room['room_id'] ?>" <?= isset($_GET['room_id']) && $_GET['room_id'] == $room['room_id'] ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($room['room_name']) ?>
-                        </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+
+    <?php if ($room_id && $room_name): ?>
+    <div class="room-info">
+        <h2>Viewing Schedule for: <?= htmlspecialchars($room_name) ?></h2>
+        <p>Building: <?= htmlspecialchars($building_name) ?></p>
+    </div>
+    <?php endif; ?>
+
+    <section class="filter-section">
+        <h2>Select Room to View Schedule</h2>
+        <div class="filter-row">
+            <div class="filter-group">
+                <label for="buildingSelect">Building:</label>
+                <select id="buildingSelect" onchange="window.location.href = '?building_id=' + this.value;">
+                    <option value="">-- Select Building --</option>
+                    <?php foreach ($buildings as $building): ?>
+                    <option value="<?= $building['building_id'] ?>" <?= isset($_GET['building_id']) && $_GET['building_id'] == $building['building_id'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($building['building_name']) ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-        </section>
-        
-        <!-- Calendar container -->
-        <div id="calendar-container">
-            <div class="calendar-header">
-                <h2 class="calendar-title" id="calendar-title">
-                    Reservation Schedule for <?= $room_name ?: 'All Rooms in ' . $building_name ?>
-                </h2>
+
+            <div class="filter-group">
+                <label for="roomSelect">Room:</label>
+                <select id="roomSelect" onchange="window.location.href = '?room_id=' + this.value;">
+                    <option value="">-- Select Room --</option>
+                    <?php foreach ($rooms as $room): ?>
+                    <option value="<?= $room['room_id'] ?>" <?= isset($_GET['room_id']) && $_GET['room_id'] == $room['room_id'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($room['room_name']) ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-            <div id="calendar"></div>
         </div>
+    </section>
+
+    <div id="calendar-container">
+        <div class="calendar-header">
+            <h2 class="calendar-title" id="calendar-title">
+                Reservation Schedule for <?= $room_name ?: 'All Rooms' . ($building_name ? ' in ' . $building_name : '') ?>
+            </h2>
+        </div>
+        <div id="calendar"></div>
     </div>
 
     <script>
@@ -249,14 +256,13 @@ $no_reservation_message = empty($events) ? 'There are no reservations for this r
             });
             calendar.render();
 
-            // Show a popup if there are no reservations
             <?php if ($no_reservation_message): ?>
-                Swal.fire({
-                    title: 'No Reservations',
-                    text: '<?= $no_reservation_message ?>',
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                });
+            Swal.fire({
+                title: 'No Reservations',
+                text: '<?= $no_reservation_message ?>',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
             <?php endif; ?>
         });
     </script>
