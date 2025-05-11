@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with full background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('bsuu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Optional header styles if used */
+.header {
+    background-color: transparent;
+    padding: 20px;
+}
+
+/* Centered page title */
+.center-title {
+    font-size: 36px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin: 30px auto 10px auto; /* Top, horizontal, and bottom margin */
+    display: block;
+    width: fit-content;
+    text-align: center;
+}
+
+/* Back button */
+.back-button {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+/* Main About Us container */
+.about-us {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    max-width: 1000px;
+    margin: 60px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Section base style */
+.goal-section,
+.team-section,
+.contact-section {
+    margin-bottom: 40px;
+}
+
+/* Section headings */
+.goal-section h2,
+.goal-section h3,
+.team-section h3,
+.contact-section h2 {
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Paragraphs in sections */
+.goal-section p,
+.contact-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Team Profile layout */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Individual team member */
+.profile {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: translateY(-5px);
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile h3 {
+    font-size: 18px;
+    color: #222;
+    margin-top: 10px;
+}
+
+/* Contact Info Styling */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 10px 0;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section i {
+    font-size: 20px;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Logo container */
+.logo-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logo-container img {
+    width: 80px;
+    height: auto;
+    background: none;
+}
+
+.logout-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: black;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        z-index: 9999;
+    }
+
+    .logout-btn:hover {
+        background-color: #c0392b;
+        color: white;
+        cursor: pointer;
+    }

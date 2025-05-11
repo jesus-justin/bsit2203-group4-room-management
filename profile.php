@@ -33,30 +33,11 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>User Profile</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="profiles.css">
 </head>
 <body>
 <body>
     
-    <style>
-        .logout-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            background-color:rgb(49, 190, 195);
-            color: white;
-            padding: 8px 14px;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
-            z-index: 9999;
-        }
-        .logout-btn:hover {
-            background-color: #c0392b;
-        }
-    </style>
     <a class="logout-btn" href="logout.php">Logout</a>
 
     <div class="profile-container">
@@ -67,9 +48,7 @@ try {
         <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
         <p><strong>Role:</strong> <?php echo htmlspecialchars($role); ?></p>
 
-        <div class="nav-links">
-            <a href="dashboard.php">← Back to Dashboard</a>
-        </div>
+        <a href="dashboard.php" class="back-button">Dashboard</a>
     </div>
 </body>
 </html>

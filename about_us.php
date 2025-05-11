@@ -5,78 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="about.css?v=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .logout-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            background-color: rgb(49, 190, 195);
-            color: white;
-            padding: 8px 14px;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
-            z-index: 9999;
-        }
+    <link rel="stylesheet" href="about_us.css">
 
-        .logout-btn:hover {
-            background-color: #c0392b;
-        }
-
-        .my-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #3498db;
-            color: white;
-            padding: 8px 14px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            z-index: 9999;
-        }
-
-        .my-button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Remove top space above About Us */
-        .about-us h2 {
-            margin-top: 0;
-        }
-
-        /* Optional spacing control */
-        .logo-container {
-            text-align: center;
-            margin: 10px 0;
-        }
-
-        .logo-container img {
-            max-width: 150px;
-            height: auto;
-            margin-bottom: 5px;
-        }
-    </style>
+   
 </head>
 <body>
-    <!-- Logout and Back Buttons -->
-    <a class="logout-btn" href="logout.php">Logout</a>
-    <button class="my-button" onclick="history.back()">⬅ Go Back</button>
+   <a class="logout-btn" href="logout.php">Logout</a>
 
-    <!-- Logo on top center -->
-    <div class="logo-container">
-        <img src="bsu.png" alt="ReServeU Logo">
-    </div>
+<header class="header">
+    <a href="dashboard.php" class="back-button">Dashboard</a>
+    <h1 class="center-title">About Us</h1>
+    <div style="width: 130px;"></div>
+</header>
 
     <section class="about-us">
         <div class="goal-section">
-            <h2>About Us</h2>
             <h3>Our Goal</h3>
             <p>The goal of this project is to create a system that helps students and teachers identify and locate classrooms and manage occupancy status efficiently. By streamlining room assignments, occupancy tracking, and room status updates, we aim to improve the overall campus experience.</p>
 

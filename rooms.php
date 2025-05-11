@@ -34,34 +34,15 @@ $role = $_SESSION['user']['role'] ?? '';
 <head>
     <meta charset="UTF-8">
     <title>Rooms by Building</title>
-    <link rel="stylesheet" href="room.css">
+    <link rel="stylesheet" href="rooms.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 <body>
-<style>
-    .logout-btn {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        background-color:rgb(49, 190, 195);
-        color: white;
-        padding: 8px 14px;
-        border: none;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s ease;
-        z-index: 9999;
-    }
-    .logout-btn:hover {
-        background-color: #c0392b;
-    }
-</style>
 
 <a class="logout-btn" href="logout.php">Logout</a>
 
 <header class="header">
-    <a href="dashboard.php" class="back-button">← Back to Dashboard</a>
+    <a href="dashboard.php" class="back-button">Dashboard</a>
     <h1 class="center-title">Buildings/Rooms</h1>
     <div style="width: 130px;"></div>
 </header>
