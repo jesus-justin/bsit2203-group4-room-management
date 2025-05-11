@@ -10,11 +10,9 @@
         <div class="dropdown-container">
             <button onclick="toggleDropdown()" class="dropdown-btn">Menu</button>
             <div id="dropdownMenu" class="dropdown-content">
-                <a href="users.php">Users</a>
                 <a href="rooms.php">Rooms</a>
                 <a href="admin_reservation.php">Reservations</a>
                 <a href="about_us.php">About Us</a>
-                <a href="feedback.php">Feedback List</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>
