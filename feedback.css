@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with full background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('bsuu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Optional header styles if used */
+.header {
+    background-color: transparent;
+    padding: 20px;
+}
+
+/* Centered page title */
+.center-title {
+    font-size: 36px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin: 30px auto 10px auto; /* Top, horizontal, and bottom margin */
+    display: block;
+    width: fit-content;
+    text-align: center;
+}
+
+/* Back button */
+.back-button {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.feedback-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    max-width: 1000px;
+    margin: 60px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-top: 5px;
+}
+
+/* Rating stars styling */
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 30px;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: gold;
+}
+
+.rating-stars input:checked ~ label {
+    color: gold;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    margin-top: 20px;
+}
+
+.success, .error {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.powered {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 20px;
+    color: gray;
+}

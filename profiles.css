@@ -1,0 +1,79 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with full background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('bsuu.jpg'); /* Match your system's background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile container as a single clean box */
+.profile-container {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    color: #333;
+}
+
+/* Profile title */
+.profile-container h1 {
+    font-size: 28px;
+    text-align: center;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Profile paragraph details */
+.profile-container p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.back-button {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+ .logout-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: black;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        z-index: 9999;
+    }
+
+    .logout-btn:hover {
+        background-color: #c0392b;
+        color: white;
+        cursor: pointer;
+    }

@@ -13,6 +13,7 @@
                 <a href="profile.php">Profile</a>
                 <a href="rooms.php">Rooms</a>
                 <a href="about_us.php">About Us</a>
+                <a href="feedback.php">Feedback</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>
@@ -36,7 +37,6 @@
         <p>To enhance user experience, the system includes the following core features:</p>
         <ul>
             <li><strong>Schedule Reservation:</strong> Easily view and reserve available rooms. Users can select a room based on their needs (classroom, meeting room, etc.), check the availability, and book the room for a specific time period. The system ensures that rooms are booked without double-booking conflicts.</li>
-            <li><strong>University Minimap:</strong> Navigate the campus with ease by using the integrated minimap feature. This interactive map allows users to locate rooms, departments, and other important facilities. New students and staff can use this feature to familiarize themselves with the campus layout, while returning students can quickly find rooms for their next class.</li>
             <li><strong>Feedback:</strong> After using a room or completing a reservation, users can submit feedback. This helps the system administrators identify potential issues with rooms (such as maintenance needs), assess room usage patterns, and continuously improve the overall room reservation process. Feedback from users is essential to fine-tuning the system and addressing concerns promptly.</li>
         </ul>
     

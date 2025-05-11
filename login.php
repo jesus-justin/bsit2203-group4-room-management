@@ -55,16 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 <div class="container">
-    <!-- LEFT SIDE -->
-    <div class="left-side">
-        <div>
-            <h1>ReServeU: BatState-U Lipa Campus Room Management System</h1>
-            <div class="divider"></div>
-            <p><strong>ReServeU</strong> stands for <em>Red Spartan Serve University</em> – a platform to streamline room reservation.</p>
-            <p><strong>SDG Alignment:</strong> Supports <em>SDG 4 – Quality Education</em>.</p>
-            <p style="font-size: 12px; color: #888;">&copy; 2025 ReServeU</p>
-        </div>
+     <div class="left-side">
+    <div>
+      <h1>ReServeU: BatState-U Lipa Campus Room Management System</h1>
+      <div class="divider"></div>
+      <p>
+        <strong>ReServeU</strong> stands for <em>Red Spartan Serve University</em> – a platform designed to streamline room reservation and scheduling across BatState-U Lipa Campus.
+        The system empowers students, faculty, and staff to efficiently access and manage available learning spaces.
+      </p>
+      <br>
+      <p><strong>SDG Alignment:</strong><br>
+        ReServeU supports <em>United Nations Sustainable Development Goal 4 – Quality Education</em> by promoting inclusive, accessible, and organized educational environments through efficient space management.
+      </p>
+      <br><br>
+      <p style="font-size: 12px; color: #888;">&copy; 2025 ReServeU | Batangas State University - Lipa Campus. All rights reserved.</p>
     </div>
+  </div>
 
     <!-- RIGHT SIDE -->
     <div class="right-side">
