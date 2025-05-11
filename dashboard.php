@@ -13,6 +13,7 @@
                 <a href="profile.php">Profile</a>
                 <a href="rooms.php">Rooms</a>
                 <a href="about_us.php">About Us</a>
+                <a href="feedback.php">Feedback</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>

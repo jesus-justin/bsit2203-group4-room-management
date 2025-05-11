@@ -39,15 +39,15 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
-    <link rel="stylesheet" href="feed.css">
-    <link rel = "website icon" type = "png" href = "BSU.jpg";>
+    <link rel="stylesheet" href="feedback.css">
 </head>
 <body>
 
-    <header>
-        <h1>Feedback</h1>
-        <p>We value your opinion!</p>
-    </header>
+<header class="header">
+    <a href="dashboard.php" class="back-button">Dashboard</a>
+    <h1 class="center-title">Feedback</h1>
+    <div style="width: 130px;"></div>
+</header>
 
     <div class="feedback-container">
     <h2>Send Feedback</h2>
@@ -86,7 +86,7 @@ $conn->close();
         </div>
     </form>
     <div class="powered">
-       Thank You for the kyutness
+       Thank You!
     </div>
 </div>
 </body>
