@@ -57,7 +57,7 @@ $conn->close();
 <body>
 
 <header class="header">
-    <a href="dashboard.php" class="back-button">Dashboard</a>
+    <a href="student_dashboard.php" class="back-button">Dashboard</a>
     <h1 class="center-title">Feedback</h1>
     <div style="width: 130px;"></div>
 </header>
@@ -71,7 +71,7 @@ $conn->close();
         echo "<div class='success'>$success</div>";
     }
     ?>
-    <form action="feedback.php" method="POST">
+    <form action="feedback2.php" method="POST">
         <div class="form-group">
             <label for="suggestion">Your suggestion</label>
             <textarea id="suggestion" name="suggestion" rows="2" required></textarea>

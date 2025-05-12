@@ -48,7 +48,25 @@ try {
         <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
         <p><strong>Role:</strong> <?php echo htmlspecialchars($role); ?></p>
 
-        <a href="dashboard.php" class="back-button">Dashboard</a>
+        <?php
+if (isset($_SESSION['role'])) {
+    switch ($_SESSION['role']) {
+        case 'admin':
+            $dashboard = 'admin_dashboard.php';
+            break;
+        case 'student':
+            $dashboard = 'student_dashboard.php';
+            break;
+        case 'instructor':
+            $dashboard = 'instructor_dashboard.php';
+            break;
+        default:
+            $dashboard = '#'; // fallback if role is unrecognized
+    }
+    echo '<a href="' . $dashboard . '" class="back-button">Dashboard</a>';
+}
+?>
+
     </div>
 </body>
 </html>

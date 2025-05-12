@@ -6,15 +6,15 @@ require_once 'check_session.php';
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="admin_dashboard.css">
+    <link rel="stylesheet" href="reservations.css">
 </head>
 <body>
-    <div class="top-bar">
-        <span></span>
-        <a href="logout.php" class="btn">Logout</a>
-    </div>
+     <a class="logout-btn" href="logout.php">Logout</a>
 
-    <h2>Welcome to the Admin Dashboard</h2>
+    <header class="header">
+        <h1 class="center-title">Admin Dashboard</h1>
+    </header>
+
     <ul>
         <li><a href="user_management.php">User Management</a></li>
         <li><a href="reservation_management.php">Reservation Management</a></li>

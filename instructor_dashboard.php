@@ -13,8 +13,8 @@
                 <a href="profile.php">Profile</a>
                 <a href="instructor_rooms.php">Rooms</a>
                 <a href="schedule_calendar.php">Schedule</a>
-                <a href="about_us.php">About Us</a>
-                <a href="feedback.php">Feedback</a>
+                <a href="about_us_2.php">About Us</a>
+                <a href="feedback1.php">Feedback</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>

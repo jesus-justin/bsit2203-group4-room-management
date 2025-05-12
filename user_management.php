@@ -12,6 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ':id' => $_POST['user_id'],
         ':role' => $_POST['role']
     ]);
+    
+    // Redirect with status 'approved' or 'denied' after role change
+    header("Location: user_management.php?status=approved");
+    exit; // Make sure the script stops here
 }
 
 // Get all users
@@ -24,15 +28,16 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
     <title>User Management</title>
-    <link rel="stylesheet" href="admin_dashboard.css">
+    <link rel="stylesheet" href="reservations.css">
 </head>
 <body>
-    <div class="top-bar">
-        <a href="admin_dashboard.php" class="btn">← Back to Dashboard</a>
-        <a href="logout.php" class="btn">Logout</a>
-    </div>
+    <a class="logout-btn" href="logout.php">Logout</a>
 
-    <h2>User Management</h2>
+    <header class="header">
+        <a href="admin_dashboard.php" class="back-button">Dashboard</a>
+        <h1 class="center-title">User Management</h1>
+    </header>
+
     <table>
         <tr>
             <th>ID</th>
@@ -63,5 +68,32 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tr>
         <?php endforeach; ?>
     </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get('status');  // Get the 'status' parameter from the URL
+
+            // Display SweetAlert based on status
+            if (status === 'approved') {
+                Swal.fire({
+                    text: 'Role has been successfully updated.',
+                    icon: 'success',
+                    backdrop: false,
+                    allowOutsideClick: true,
+                    allowEscapeKey: true,
+                    position: 'center',
+                    customClass: {
+                        popup: 'swal2-center-popup'
+                    }
+                });
+            } else if (status === 'denied') {
+                Swal.fire({
+                    text: '',
+                });
+            }
+        });
+    </script>
 </body>
 </html>

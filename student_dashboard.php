@@ -12,8 +12,8 @@
             <div id="dropdownMenu" class="dropdown-content">
                 <a href="profile.php">Profile</a>
                 <a href="rooms.php">Rooms</a>
-                <a href="about_us.php">About Us</a>
-                <a href="feedback.php">Feedback</a>
+                <a href="about_us_1.php">About Us</a>
+                <a href="feedback2.php">Feedback</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>

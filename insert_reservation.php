@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Reservation Form</title>
-    <link rel="stylesheet" href="reservations.css">
+    <link rel="stylesheet" href="insert_reservation.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
