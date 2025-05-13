@@ -23,6 +23,7 @@ try {
 
     $name = $user['name'];
     $role = $user['role'];
+    $_SESSION['role'] = $role; // ✅ Set role in session
 
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());
@@ -36,11 +37,7 @@ try {
     <link rel="stylesheet" href="profiles.css">
 </head>
 <body>
-<body>
-    
     <a class="logout-btn" href="logout.php">Logout</a>
-
-    <div class="profile-container">
 
     <div class="profile-container">
         <h1>User Profile</h1>
@@ -49,24 +46,23 @@ try {
         <p><strong>Role:</strong> <?php echo htmlspecialchars($role); ?></p>
 
         <?php
-if (isset($_SESSION['role'])) {
-    switch ($_SESSION['role']) {
-        case 'admin':
-            $dashboard = 'admin_dashboard.php';
-            break;
-        case 'student':
-            $dashboard = 'student_dashboard.php';
-            break;
-        case 'instructor':
-            $dashboard = 'instructor_dashboard.php';
-            break;
-        default:
-            $dashboard = '#'; // fallback if role is unrecognized
-    }
-    echo '<a href="' . $dashboard . '" class="back-button">Dashboard</a>';
-}
-?>
-
+        if (isset($_SESSION['role'])) {
+            switch ($_SESSION['role']) {
+                case 'admin':
+                    $dashboard = 'admin_dashboard.php';
+                    break;
+                case 'student':
+                    $dashboard = 'student_dashboard.php';
+                    break;
+                case 'instructor':
+                    $dashboard = 'instructor_dashboard.php';
+                    break;
+                default:
+                    $dashboard = '#'; // fallback if role is unrecognized
+            }
+            echo '<a href="' . $dashboard . '" class="back-button">Return to Dashboard</a>';
+        }
+        ?>
     </div>
 </body>
 </html>

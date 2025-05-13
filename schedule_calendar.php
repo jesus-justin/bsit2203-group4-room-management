@@ -2,6 +2,8 @@
 require_once 'check_session.php';
 require_once 'database.php';
 
+
+
 $db = new Database();
 $conn = $db->getConnect();
 
@@ -23,6 +25,13 @@ $room_name = '';
 $building_name = '';
 $rooms = [];
 
+if ($role === 'student') {
+    $dashboardLink = 'student_dashboard.php';
+} elseif ($role === 'instructor') {
+    $dashboardLink = 'instructor_dashboard.php';
+} else {
+    $dashboardLink = 'login.php';
+}
 // Get rooms for selected building
 if ($building_id) {
     $roomsStmt = $conn->prepare("SELECT room_id, room_name FROM rooms WHERE building_id = ? ORDER BY room_name");
@@ -126,7 +135,7 @@ $no_reservation_message = empty($events) ? 'There are no reservations for this r
     <a class="logout-btn" href="logout.php">Logout</a>
 
     <header class="header">
-        <a href="instructor_dashboard.php" class="back-button">Dashboard</a>
+        <a href="<?= $dashboardLink ?>" class="back-button">Dashboard</a>
         <h1 class="center-title">Schedule</h1>
     </header>
 

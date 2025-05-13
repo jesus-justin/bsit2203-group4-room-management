@@ -16,7 +16,7 @@ session_start();
     <a class="logout-btn" href="logout.php">Logout</a>
 
     <header class="header">
-        <a href="<?= $dashboard ?>" class="back-button">Dashboard</a>
+        <a href=" student_dashboard.php " class="back-button">Dashboard</a>
         <h1 class="center-title">About Us</h1>
         <div style="width: 130px;"></div>
     </header>
